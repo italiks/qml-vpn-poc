@@ -1,0 +1,27 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>Toggler.qml</file>
+        <file>background.png</file>
+        <file>knob.png</file>
+        <file>ProgressCircle.qml</file>
+        <file>DotsMenu.qml</file>
+        <file>RoundButton.qml</file>
+        <file>images/three-dots.svg</file>
+        <file>fonts/icomoon.ttf</file>
+        <file>fonts/Roboto.ttf</file>
+        <file>fonts/Robotoblack.ttf</file>
+        <file>fonts/Robotoblackitalic.ttf</file>
+        <file>fonts/Robotobold.ttf</file>
+        <file>fonts/Robotobolditalic.ttf</file>
+        <file>fonts/Robotoitalic.ttf</file>
+        <file>fonts/Robotolight.ttf</file>
+        <file>fonts/Robotolightitalic.ttf</file>
+        <file>fonts/Robotomedium.ttf</file>
+        <file>fonts/Robotomediumitalic.ttf</file>
+        <file>fonts/Robotothin.ttf</file>
+        <file>fonts/Robotothinitalic.ttf</file>
+        <file>fonts/selection.json</file>
+        <file>fonts/style.css</file>
+    </qresource>
+</RCC>
