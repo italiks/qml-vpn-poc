@@ -2,6 +2,14 @@ import QtQuick 2.0
 import QtQuick.Controls 2.5
 
 Item {
+
+    readonly property color locationComboBoxMainColor: "#1C1C1C";
+    readonly property color locationBorderColor: Qt.rgba(1, 1, 1, 0.15);
+    readonly property color unhoveredTextColor: Qt.rgba(1, 1, 1, 0.6)
+    readonly property color hoveredTextColor: "white"
+    readonly property int commonRadius:6;
+    readonly property int commonBorderWidth:2;
+
     ComboBox {
         id: servers
         anchors.centerIn: parent
@@ -12,29 +20,29 @@ Item {
             implicitWidth: 220
             radius: 6
             border.width: 2
-            border.color: Qt.rgba(1, 1, 1, 0.15)
-            color: "#1C1C1C"
+            border.color: locationBorderColor
+            color:locationComboBoxMainColor;
         }
 
         delegate: ItemDelegate {
             id: itemDlg
-            width: 200
+            width: servers.width
             height: 36
             contentItem: Text {
                 id:textItem
                 text: modelData
-                color: hovered ? "white" : Qt.rgba(1, 1, 1, 0.6)
+                color: hovered ? hoveredTextColor : unhoveredTextColor
                 font.pixelSize: 13
                 font.family: roboto.name
                 elide: Text.ElideRight
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignLeft
-                //leftPadding: 20
             }
 
             background: Rectangle {
                 anchors.fill: parent
-                color: itemDlg.hovered ? servers_background.color : Qt.lighter(servers_background.color, 1.2)
+                radius: 2
+                color: itemDlg.hovered ? locationComboBoxMainColor : Qt.lighter(locationComboBoxMainColor, 1.2)
             }
         }
 
@@ -102,10 +110,10 @@ Item {
                  }
 
                  background: Rectangle {
-                     border.color: servers_background.border.color
-                     border.width: servers_background.border.width
-                     radius: servers_background.radius
-                     color: servers_background.color
+                     border.color: locationBorderColor
+                     border.width: commonBorderWidth
+                     radius: commonRadius
+                     color: locationComboBoxMainColor
                  }
         }
     }
