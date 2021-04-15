@@ -129,11 +129,9 @@ Window {
             Layout.fillWidth: true;
         }
 
-        Rectangle {
-            id: footer
-            Layout.fillWidth: true
-            Layout.preferredHeight: 38
-            color: Qt.rgba(1, 1, 1, 0.05)
+        AdawareFooter{
+            Layout.fillWidth: true;
+            Layout.preferredHeight: 40;
         }
     }
 }
