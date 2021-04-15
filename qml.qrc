@@ -23,5 +23,6 @@
         <file>fonts/Robotothinitalic.ttf</file>
         <file>fonts/selection.json</file>
         <file>fonts/style.css</file>
+        <file>LocationCombox.qml</file>
     </qresource>
 </RCC>
