@@ -13,7 +13,7 @@ Item {
     ComboBox {
         id: servers
         anchors.centerIn: parent
-        model: ["Test", "Est", "St"]
+        model: ["Select Location", "Kyiv, Ukraine"]
         background: Rectangle {
             id: servers_background
             implicitHeight: 36

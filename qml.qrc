@@ -24,5 +24,7 @@
         <file>fonts/selection.json</file>
         <file>fonts/style.css</file>
         <file>LocationCombox.qml</file>
+        <file>OptionsPopup.qml</file>
+        <file>OptionItem.qml</file>
     </qresource>
 </RCC>

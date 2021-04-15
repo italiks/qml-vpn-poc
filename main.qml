@@ -21,6 +21,14 @@ Window {
         source: "fonts/Robotomedium.ttf"
     }
 
+    OptionsPopup{
+        id:optionsPopup
+        popupCoordinateX:0
+        popupCoordinateY: line1.y;
+        popupWidth: root.width;
+        popupHeight: 80;
+    }
+
     ColumnLayout{
         anchors.fill: parent
         spacing: 0
@@ -36,6 +44,10 @@ Window {
                 fillMode: Image.PreserveAspectFit
                 anchors.centerIn: parent
                 source: "images/three-dots.svg"
+            }
+            onClicked:
+             {
+                optionsPopup.openPopup();
             }
         }
 
