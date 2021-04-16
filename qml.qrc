@@ -23,5 +23,10 @@
         <file>fonts/Robotothinitalic.ttf</file>
         <file>fonts/selection.json</file>
         <file>fonts/style.css</file>
+        <file>LocationCombox.qml</file>
+        <file>OptionsPopup.qml</file>
+        <file>OptionItem.qml</file>
+        <file>images/AdawareWrapper.PNG</file>
+        <file>AdawareFooter.qml</file>
     </qresource>
 </RCC>
