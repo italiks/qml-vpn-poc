@@ -24,9 +24,23 @@ Window {
     OptionsPopup{
         id:optionsPopup
         popupCoordinateX:0
-        popupCoordinateY: line1.y;
+        popupCoordinateY: 42;
         popupWidth: root.width;
-        popupHeight: 80;
+        popupHeight: 90;
+        font: Qt.font({
+                      family: roboto.name,
+                      pixelSize: 13
+                      })
+    }
+
+    InfoPopup {
+        id: insecureInfo
+        popupCoordinateX: 30
+        popupCoordinateY: 132
+        popupHeight: 164
+        popupWidth: 230
+        icon: ""
+        message: ""
     }
 
     ColumnLayout{
@@ -45,8 +59,7 @@ Window {
                 anchors.centerIn: parent
                 source: "images/three-dots.svg"
             }
-            onClicked:
-             {
+            onClicked: {
                 optionsPopup.openPopup();
             }
         }

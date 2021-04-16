@@ -28,5 +28,8 @@
         <file>OptionItem.qml</file>
         <file>images/AdawareWrapper.PNG</file>
         <file>AdawareFooter.qml</file>
+        <file>images/full-settings.svg</file>
+        <file>images/how-vpn-works.svg</file>
+        <file>InfoPopup.qml</file>
     </qresource>
 </RCC>
