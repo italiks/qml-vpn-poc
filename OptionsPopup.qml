@@ -4,10 +4,18 @@ import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.15
 
 Item {
+    id: root
+
     property int popupCoordinateX;
     property int popupCoordinateY;
     property int popupWidth;
     property int popupHeight;
+
+    property font font: Qt.font(
+                            {
+                                family:"Arial",
+                                pixelSize: 12
+                            })
 
     readonly property color popupBackgroundColor: "#484848";
     function openPopup(){
@@ -15,12 +23,12 @@ Item {
     }
 
     Popup{
-
         id: optionsMainPopup
         x:popupCoordinateX;
         y:popupCoordinateY
         contentWidth: popupWidth
         contentHeight: popupHeight
+        padding: 0
 
         focus: true
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
@@ -31,11 +39,15 @@ Item {
                 width: parent.width
                 height: parent.height/2;
                 title: "How VPN Works"
+                icon: "images/how-vpn-works.svg"
+                font: root.font
             }
             OptionItem{
                 width: parent.width
                 height: parent.height/2;
                 title: "See Full Settings"
+                icon: "images/full-settings.svg"
+                font: root.font
             }
         }
         background: Rectangle{
