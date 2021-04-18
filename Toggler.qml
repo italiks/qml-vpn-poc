@@ -91,9 +91,8 @@ Item {
         interval: 2000
         onTriggered: {
             knob.in_progress = false;
-            knob.state = "on"
-//            background.color = background.on_color
-//            background.border.color = background.on_color
+            background.color = background.on_color
+            background.border.color = background.on_color
         }
     }
 
