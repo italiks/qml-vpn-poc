@@ -10,10 +10,14 @@ Item {
     readonly property int commonRadius:6;
     readonly property int commonBorderWidth:2;
 
+    CountriesListModel
+    {
+        id:countriesList
+    }
     ComboBox {
         id: servers
         anchors.centerIn: parent
-        model: ["Select Location", "Kyiv, Ukraine"]
+        model:countriesList
         background: Rectangle {
             id: servers_background
             implicitHeight: 36
@@ -28,16 +32,30 @@ Item {
             id: itemDlg
             width: servers.width
             height: 36
-            contentItem: Text {
-                id:textItem
-                text: modelData
-                color: hovered ? hoveredTextColor : unhoveredTextColor
-                font.pixelSize: 13
-                font.family: roboto.name
-                elide: Text.ElideRight
-                verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignLeft
-            }
+            contentItem: Item{
+                anchors.left: parent.left;
+                Row{
+                    spacing: 10
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.left: parent.left;
+                    anchors.leftMargin: 10;
+                    Image{
+                        source: countryIcon
+                        width:28;
+                         height: 24;
+                        fillMode: Image.PreserveAspectFit
+                    }
+                    Text {
+                        text: name
+                        color: hovered ? hoveredTextColor : unhoveredTextColor
+                        font.pixelSize: 13
+                        font.family: roboto.name
+                        elide: Text.ElideRight
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: Text.AlignLeft
+                    }
+                }
+             }
 
             background: Rectangle {
                 anchors.fill: parent
@@ -45,16 +63,29 @@ Item {
                 color: itemDlg.hovered ? locationComboBoxMainColor : Qt.lighter(locationComboBoxMainColor, 1.2)
             }
         }
-
-        contentItem: Text {
-            font.family: roboto.name
-            font.pixelSize: 13
-            text: servers.displayText
-            color: "white"
-            anchors.left: servers.left
-            anchors.leftMargin: 13
-            verticalAlignment: Text.AlignVCenter
-        }
+        contentItem: Item{
+                        Row{
+                            anchors.verticalCenter: parent.verticalCenter;
+                            anchors.left: parent.left;
+                            anchors.leftMargin: 10;
+                            spacing: 10
+                            Image{
+                                source: countriesList.get(servers.currentIndex).countryIcon
+                                width:28;
+                                height: 24;
+                                fillMode: Image.PreserveAspectFit
+                            }
+                            Text {
+                                text: countriesList.get(servers.currentIndex).name
+                                font.pixelSize: 13
+                                font.family: roboto.name
+                                color: "white"
+                                elide: Text.ElideRight
+                                verticalAlignment: Text.AlignVCenter
+                                horizontalAlignment: Text.AlignLeft
+                            }
+                        }
+                     }
 
         indicator: Canvas {
             id: canvas
@@ -115,6 +146,42 @@ Item {
                      radius: commonRadius
                      color: locationComboBoxMainColor
                  }
+                 enter: Transition {
+                     ParallelAnimation {
+                         NumberAnimation {
+                             property: "opacity";
+                             from: 0.0;
+                             to: 1.0;
+                             duration: 150
+                         }
+                         NumberAnimation {
+                             property: "scale";
+                             from: 0.4;
+                             to: 1.0;
+                             easing.type: Easing.OutBack
+                             duration: 150
+                         }
+                     }
+                 }
+                 exit:
+                     Transition {
+                     ParallelAnimation {
+                         NumberAnimation {
+                             property: "opacity";
+                             from: 1.0;
+                             to: 0;
+                             duration: 150
+                         }
+                         NumberAnimation {
+                             property: "scale";
+                             from: 1.0;
+                             to: 0.8;
+                             easing.type: Easing.OutBack
+                             duration: 150
+                         }
+                     }
+                 }
         }
+
     }
 }

@@ -23,6 +23,7 @@ Item {
     }
 
     Popup{
+        property int backgroundRadius: 0;
         id: optionsMainPopup
         x:popupCoordinateX;
         y:popupCoordinateY
@@ -41,6 +42,7 @@ Item {
                 title: "How VPN Works"
                 icon: "images/how-vpn-works.svg"
                 font: root.font
+                opacity: optionsMainPopup.opacity;
             }
             OptionItem{
                 width: parent.width
@@ -48,15 +50,53 @@ Item {
                 title: "See Full Settings"
                 icon: "images/full-settings.svg"
                 font: root.font
+                opacity: optionsMainPopup.opacity;
             }
         }
         background: Rectangle{
             anchors.fill: parent
-            color:popupBackgroundColor
+            color:popupBackgroundColor;
+            radius: optionsMainPopup.backgroundRadius;
         }
         enter: Transition {
-                   NumberAnimation { properties: "x"; from: 0; to: popupCoordinateX}
-                   NumberAnimation { properties: "y"; from: 0; to: popupCoordinateY}
-               }
+            ParallelAnimation {
+                NumberAnimation {
+                    property: "opacity";
+                    from: 0.0;
+                    to: 1.0;
+                    duration: 300
+                }
+                NumberAnimation {
+                    property: "scale";
+                    from: 0.4;
+                    to: 1.0;
+                    easing.type: Easing.OutBack
+                    duration: 300
+                }
+                NumberAnimation {
+                    property: "backgroundRadius";
+                    from: 100;
+                    to: 0;
+                    easing.type: Easing.OutBack
+                    duration: 300
+                }
+            }
+        }
+        exit: Transition {
+             ParallelAnimation {
+                 NumberAnimation {
+                     property: "opacity";
+                     from: 1.0
+                     to: 0.0;
+                     duration: 300
+                 }
+                 NumberAnimation {
+                     property: "scale";
+                     from: 1.0
+                     to: 0.8;
+                     duration: 300
+                 }
+             }
+        }
     }
 }

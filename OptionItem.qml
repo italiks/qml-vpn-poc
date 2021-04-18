@@ -19,6 +19,7 @@ Item {
             anchors.leftMargin: 35
             anchors.rightMargin: 35
             color: "#484848"
+            opacity: root.opacity
             Row {
                 anchors.fill: parent
                 spacing: 14
@@ -26,6 +27,7 @@ Item {
                     id: optionImage
                     source: root.icon
                     anchors.verticalCenter: parent.verticalCenter
+                    opacity: root.opacity;
                 }
                 Text{
                     readonly property color defColor: Qt.rgba(1, 1, 1, 0.7)
@@ -34,6 +36,7 @@ Item {
                     font: root.font
                     color: defColor
                     anchors.verticalCenter: parent.verticalCenter
+                    opacity: root.opacity;
                 }
             }
         }
