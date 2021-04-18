@@ -37,13 +37,24 @@ Item {
                     color: defColor
                     anchors.verticalCenter: parent.verticalCenter
                     opacity: root.opacity;
+
+                    states: [
+                            State {
+                                name: "hovered"
+                                PropertyChanges { target: caption; color: "white" }
+                            },
+                            State {
+                                name: "default"
+                                PropertyChanges { target: caption; color: caption.defColor }
+                            }
+                        ]
                 }
             }
         }
 
         hoverEnabled: true
 
-        onEntered:  caption.color = "white"
-        onExited: caption.color = caption.defColor
+        onEntered:  caption.state = "hovered"
+        onExited: caption.state = "default"
     }
 }

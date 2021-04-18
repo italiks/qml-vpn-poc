@@ -1,8 +1,11 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QLoggingCategory>
 
 int main(int argc, char *argv[])
 {
+    QLoggingCategory::setFilterRules(QStringLiteral("qt.qml.binding.removal.info=true"));
+
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 #endif
