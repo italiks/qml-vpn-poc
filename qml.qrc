@@ -36,5 +36,6 @@
         <file>images/country-icons/DE.svg</file>
         <file>images/country-icons/UA.svg</file>
         <file>images/MainToggle.png</file>
+        <file>LocationComboboxDelegate.qml</file>
     </qresource>
 </RCC>

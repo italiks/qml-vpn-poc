@@ -32,30 +32,12 @@ Item {
             id: itemDlg
             width: servers.width
             height: 36
-            contentItem: Item{
-                anchors.left: parent.left;
-                Row{
-                    spacing: 10
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.left: parent.left;
-                    anchors.leftMargin: 10;
-                    Image{
-                        source: countryIcon
-                        width:28;
-                         height: 24;
-                        fillMode: Image.PreserveAspectFit
-                    }
-                    Text {
-                        text: name
-                        color: hovered ? hoveredTextColor : unhoveredTextColor
-                        font.pixelSize: 13
-                        font.family: roboto.name
-                        elide: Text.ElideRight
-                        verticalAlignment: Text.AlignVCenter
-                        horizontalAlignment: Text.AlignLeft
-                    }
+            contentItem:
+                LocationComboboxDelegate
+                {
+                    imageSource:  countryIcon
+                    itemText: name
                 }
-             }
 
             background: Rectangle {
                 anchors.fill: parent
@@ -63,29 +45,12 @@ Item {
                 color: itemDlg.hovered ? locationComboBoxMainColor : Qt.lighter(locationComboBoxMainColor, 1.2)
             }
         }
-        contentItem: Item{
-                        Row{
-                            anchors.verticalCenter: parent.verticalCenter;
-                            anchors.left: parent.left;
-                            anchors.leftMargin: 10;
-                            spacing: 10
-                            Image{
-                                source: countriesList.get(servers.currentIndex).countryIcon
-                                width:28;
-                                height: 24;
-                                fillMode: Image.PreserveAspectFit
-                            }
-                            Text {
-                                text: countriesList.get(servers.currentIndex).name
-                                font.pixelSize: 13
-                                font.family: roboto.name
-                                color: "white"
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                                horizontalAlignment: Text.AlignLeft
-                            }
-                        }
-                     }
+        contentItem:
+            LocationComboboxDelegate
+            {
+                imageSource:  countriesList.get(servers.currentIndex).countryIcon;
+                itemText: countriesList.get(servers.currentIndex).name
+            }
 
         indicator: Canvas {
             id: canvas
