@@ -35,5 +35,6 @@
         <file>images/country-icons/CZ.svg</file>
         <file>images/country-icons/DE.svg</file>
         <file>images/country-icons/UA.svg</file>
+        <file>images/MainToggle.png</file>
     </qresource>
 </RCC>

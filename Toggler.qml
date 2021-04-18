@@ -71,7 +71,11 @@ Item {
             onClicked: toggle()
             onReleased: releaseSwitch()
         }
-
+        Image{
+            anchors.fill: parent
+            anchors.centerIn: parent
+            source: "images/MainToggle.png"
+        }
         ProgressCircle {
             visible: parent.in_progress
             anchors.centerIn: parent
