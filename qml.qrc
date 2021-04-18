@@ -39,5 +39,6 @@
         <file>LocationComboboxDelegate.qml</file>
         <file>images/country-icons/CA.svg</file>
         <file>images/country-icons/FR.svg</file>
+        <file>images/info-popup/red-eye.svg</file>
     </qresource>
 </RCC>

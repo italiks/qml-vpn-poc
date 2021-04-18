@@ -35,12 +35,10 @@ Window {
 
     InfoPopup {
         id: insecureInfo
-        popupCoordinateX: 30
-        popupCoordinateY: 132
         popupHeight: 164
         popupWidth: 230
-        icon: ""
-        message: ""
+        popupCoordinateX: infoSign.x+infoSign.width/2 - popupWidth/2
+        popupCoordinateY: infoSign.y - popupHeight;
     }
 
     ColumnLayout{
@@ -124,6 +122,10 @@ Window {
 
             Layout.alignment: Qt.AlignCenter
             Layout.topMargin: 40
+            onClicked:
+            {
+                insecureInfo.openPopup();
+            }
         }
 
         Text {
