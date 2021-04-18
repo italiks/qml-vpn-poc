@@ -43,8 +43,6 @@ Item {
 
         MouseArea {
             anchors.fill: parent
-//            anchors.rightMargin: -8
-//            anchors.bottomMargin: -12
             onClicked: toggle()
         }
     }
@@ -61,9 +59,6 @@ Item {
         readonly property int minX: 0
         readonly property int maxX: background.width - diameter
         property bool in_progress: false
-
-//        anchors.verticalCenter: background.height / 2
-//        anchors.baseline: background.height / 2
 
         MouseArea {
             anchors.fill: parent
@@ -91,40 +86,14 @@ Item {
 
     anchors.margins: 10
 
-/*
-    Image {
-        id: background
-        source: "background.png"
-        MouseArea {
-            anchors.fill: parent
-            anchors.rightMargin: -8
-            anchors.bottomMargin: -12
-            onClicked: toggle()
-        }
-    }
-*/
-    /*
-    Image {
-        id: knob
-        x: 1; y: 2
-        source: "knob.png"
-
-        MouseArea {
-            anchors.fill: parent
-            drag.target: knob; drag.axis: Drag.XAxis; drag.minimumX: 1; drag.maximumX: 78;
-            onClicked: toggle()
-            onReleased: releaseSwitch()
-        }
-    }
-*/
-
     Timer {
         id: timer
         interval: 2000
         onTriggered: {
             knob.in_progress = false;
-            background.color = background.on_color
-            background.border.color = background.on_color
+            knob.state = "on"
+//            background.color = background.on_color
+//            background.border.color = background.on_color
         }
     }
 
