@@ -91,8 +91,7 @@ Item {
         interval: 2000
         onTriggered: {
             knob.in_progress = false;
-            background.color = background.on_color
-            background.border.color = background.on_color
+            toggleswitch.state = "triggered"
         }
     }
 
@@ -141,7 +140,23 @@ Item {
                     timer.stop()
                 }
             }
+        },
+        State{
+            name:"triggered"
+            PropertyChanges {
+                target: background
+                color: background.on_color
+                border.color: background.on_color
+            }
+            PropertyChanges {
+                target: knob; x:knob.maxX
+            }
+            PropertyChanges {
+                target: toggleswitch
+                on: true
+            }
         }
+
     ]
 
     transitions: Transition {
