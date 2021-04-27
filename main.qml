@@ -62,50 +62,26 @@ Window {
             }
         }
 
-        Text {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            height: 21
-            id: line1
-            font.pixelSize: 16
-            font.family: roboto.name
-            color: "white"
-            text: qsTr("Your online privacy is")
-        }
-        Text {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            height: 24
-            Layout.topMargin: 3
-            id: line2
-            font.pixelSize: 18
-            font.capitalization: Font.AllUppercase
-            font.bold: true
-            font.family: robotoMedium.name
-            color: "#FF3434"
-            text: qsTr("NOT PROTECTED")
-        }
-        Text {
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
-            Layout.topMargin: 11
-            height: 19
-            id: line3
-            font.pixelSize: 13
-            font.family: roboto.name
-            color: "white"
-            text: qsTr("Turn VPN on to mask your details")
+        ConnectedPrivacyWidget
+        {
+            id:connectedPrivacyWidget
+            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true;
+            Layout.topMargin: 10
+            Layout.preferredHeight: 70
         }
 
 
         Toggler {
-//            anchors.centerIn: parent
             on: false
-            Layout.topMargin: 27
-            Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+            Layout.topMargin: 20
+            Layout.alignment: Qt.AlignHCenter
         }
 
         LocationCombox{
             id: locationSelector
             Layout.topMargin: 37
-            Layout.alignment: Qt.AlignCenter
+            Layout.alignment: Qt.AlignHCenter
         }
 
         RoundButton {
